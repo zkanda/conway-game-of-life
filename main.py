@@ -106,10 +106,12 @@ def draw_grid(grid):
 
 
 if __name__ == "__main__":
-    world_population = initial_world_population
-    while True:
-        world_population = apply_rules(world_population)
-        #print(world_population)
-        draw_grid(world_population)
-        import time
-        time.sleep(.001)
+    try:
+        world_population = initial_world_population
+        while True:
+            world_population = apply_rules(world_population)
+            draw_grid(world_population)
+            import time
+            time.sleep(.001)
+    except KeyboardInterrupt:
+        curses.endwin()
